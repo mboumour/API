@@ -35,7 +35,8 @@ app.post('/solver', (req, res) => {
   
     // return res.send(`Sum : ${a} + ${b} = ${sum}`);
       });
-    res.send(`Sum : ${a} + ${b}`);
+    res.send(`Sum : ${a} + ${b} = ${sum}`);
+    // res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
 });
 
