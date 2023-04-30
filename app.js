@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 // Route GET /solver
 app.get('/solver', (req, res) => {
-  res.json({ message: "GET request received on /solver route" }); 
+  res.json({ message: "GET request received on /solver route2" }); 
 });
 
 // Route POST /solver
@@ -27,7 +27,7 @@ app.post('/solver', (req, res) => {
   console.log(`a = ${a}, b = ${b}`);
 
 
-  res.json({ message: 'Problème résolu2 !' });
+  res.json({ message: 'Problème résolu !' });
 });
 
 // Autres routes...
