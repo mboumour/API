@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 
-// const app = express();
+const app2 = express();
 const app = require('./app');
 app.use(bodyParser.json());
 
@@ -51,7 +51,7 @@ server.on('listening', () => {
 });
 
 // Ajouter la route /solver
-app.post('/solver', (req, res) => {
+app2.post('/solver', (req, res) => {
   // Récupérer les données envoyées dans la requête
   const data = req.body;
 
