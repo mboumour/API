@@ -1,5 +1,8 @@
 const http = require('http');
 const app = require('./app');
+const { exec } = require('child_process');
+const express = require('express');
+const cors = require('cors'); // Importation de CORS
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -12,6 +15,7 @@ const normalizePort = val => {
   }
   return false;
 };
+
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -44,32 +48,22 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
-server.listen(port);
+const app2 = express();
+app2.use(cors()); // Utilisation de CORS
 
-const express = require('express');
-const { exec } = require('child_process');
-const cors = require('cors'); // Importation de CORS
-
-const app = express();
-app.use(cors()); // Utilisation de CORS
-
-app.use(express.urlencoded({ extended: true }));
+app2.use(express.urlencoded({ extended: true }));
 
 app.post('/solve', (req, res) => {
-    const a = parseInt(req.body.a);
-    const b = parseInt(req.body.b);
+  const a = parseInt(req.body.a);
+  const b = parseInt(req.body.b);
 
-    console.log(`a = ${a}, b = ${b}`);
-    
-    exec(`./sum ${a} ${b}`, (error, stdout, stderr) => {
-	if (error) {
-	    console.error(`exec error: ${error}`);
-	    return res.status(500).send("Error occurred !");
-	}
+  console.log(`a = ${a}, b = ${b}`);
 
-	const sum = parseInt(stdout.trim());
-
-	return res.send(`Sum : ${a} + ${b} = ${sum}`);
-    });
-
+  return res.send(`a = ${a}, b = ${b}`);
 });
+
+app2.listen(3001, () => {
+    console.log('Server listening on port 3001');
+});
+
+module.exports = app;
