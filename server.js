@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 
-const app2 = express();
 const app = require('./app');
 app.use(bodyParser.json());
 
@@ -49,19 +48,6 @@ server.on('listening', () => {
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
   console.log('Listening on ' + bind);
 });
-
-// Ajouter la route /solver
-app2.post('/solver', (req, res) => {
-  // Récupérer les données envoyées dans la requête
-  const data = req.body;
-
-  // Faire quelque chose avec les données pour résoudre le problème
-
-  // Envoyer une réponse avec le résultat
-  res.json({ message: 'Problème résolu !' });
-});
-
-// Autres routes...
 
 // Gérer les erreurs
 app.use((err, req, res, next) => {
