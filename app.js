@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 // Route GET /solver
 app.get('/solver', (req, res) => {
-  res.json({ message: "GET request received on /solver route2" }); 
+  res.json({ message: "GET request received on /solver route3" }); 
 });
 
 // Route POST /solver
@@ -27,7 +27,16 @@ app.post('/solver', (req, res) => {
   console.log(`a = ${a}, b = ${b}`);
 
 
-  res.json({ message: 'Problème résolu !' });
+  exec(`./sum ${a} ${b}`, (error, stdout, stderr) => {
+    if (error) {
+        console.error(`exec error: ${error}`);
+        return res.status(500).send("Error occurred !");
+    }
+  
+    const sum = parseInt(stdout.trim());
+  
+    return res.send(`Sum : ${a} + ${b} = ${sum}`);
+      });
 });
 
 // Autres routes...
