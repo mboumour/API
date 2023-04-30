@@ -25,6 +25,7 @@ app.post('/solver', (req, res) => {
   const a = parseInt(req.body.a);
   const b = parseInt(req.body.b);
   
+
   exec(`./sum ${a} ${b}`, (error, stdout, stderr) => {
     if (error) {
         console.error(`exec error: ${error}`);
@@ -33,9 +34,8 @@ app.post('/solver', (req, res) => {
   
     const sum = parseInt(stdout.trim());
   
-    // return res.send(`Sum : ${a} + ${b} = ${sum}`);
+    return res.send(`Sum : ${a} + ${b} = ${sum}`);
       });
-    res.send(`Sum : ${a} + ${b} = ${sum}`);
     // res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
 });
