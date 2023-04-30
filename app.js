@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const cors = require('cors'); // Importation de CORS
 
 const app = express();
 app.use(bodyParser.json());
