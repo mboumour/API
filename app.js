@@ -24,6 +24,7 @@ app.get('/solver', (req, res) => {
 app.post('/solver', (req, res) => {
   const a = parseInt(req.body.a);
   const b = parseInt(req.body.b);
+  /*
   console.log(`a = ${a}, b = ${b}`);
 
 
@@ -36,7 +37,8 @@ app.post('/solver', (req, res) => {
     const sum = parseInt(stdout.trim());
   
     return res.send(`Sum : ${a} + ${b} = ${sum}`);
-      });
+      });*/
+    res.json({ message: 'Problème résolu !' });    
 });
 
 // Autres routes...
