@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
-// const cors = require('cors'); // Importation de CORS
+const cors = require('cors'); // Importation de CORS
+app.use(cors());
 
 const app = express();
 app.use(bodyParser.json());
@@ -26,7 +27,7 @@ app.post('/solver', (req, res) => {
   const a = parseInt(req.body.a);
   const b = parseInt(req.body.b);
   
-
+  /*
   exec(`./sum ${a} ${b}`, (error, stdout, stderr) => {
     if (error) {
         console.error(`exec error: ${error}`);
@@ -37,6 +38,7 @@ app.post('/solver', (req, res) => {
   
     return;// res.send(`Sum : ${a} + ${b} = ${sum}`);
       });
+      */
     res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
 });
