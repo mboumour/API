@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 
   
   app.use((req, res) => {
-    res.json({ message: "UPDATE2 !" }); 
+    res.json({ message: "UPDATE !" }); 
  });
 
 module.exports = app;
