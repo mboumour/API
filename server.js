@@ -48,22 +48,4 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
-const app2 = express();
-app2.use(cors()); // Utilisation de CORS
-
-app2.use(express.urlencoded({ extended: true }));
-
-app.post('/solve', (req, res) => {
-  const a = parseInt(req.body.a);
-  const b = parseInt(req.body.b);
-
-  console.log(`a = ${a}, b = ${b}`);
-
-  return res.send(`a = ${a}, b = ${b}`);
-});
-
-app2.listen(3001, () => {
-    console.log('Server listening on port 3001');
-});
-
-module.exports = app;
+server.listen(port);
