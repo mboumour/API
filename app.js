@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { exec } = require('child_process');
 
 const app = express();
 app.use(bodyParser.json());
@@ -21,11 +22,12 @@ app.get('/solver', (req, res) => {
 
 // Route POST /solver
 app.post('/solver', (req, res) => {
-  const data = req.body;
+  const a = parseInt(req.body.a);
+  const b = parseInt(req.body.b);
+  console.log(`a = ${a}, b = ${b}`);
 
-  // Faire quelque chose avec les données pour résoudre le problème
 
-  res.json({ message: 'Problème résolu !' });
+  res.json({ message: 'Problème résolu2 !' });
 });
 
 // Autres routes...
