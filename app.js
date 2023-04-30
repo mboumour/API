@@ -14,8 +14,18 @@ app.use((req, res, next) => {
   });
 
   
-  app.use((req, res) => {
+app.use((req, res) => {
     res.json({ message: "UPDATE !" }); 
  });
+
+ app.post('/solver', (req, res) => {
+  // Récupérer les données envoyées dans la requête
+  const data = req.body;
+
+  // Faire quelque chose avec les données pour résoudre le problème
+
+  // Envoyer une réponse avec le résultat
+  res.json({ message: 'Problème résolu !' });
+});
 
 module.exports = app;
