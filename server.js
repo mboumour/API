@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 
-const app = express();
+// const app = express();
+const app = require('./app');
 app.use(bodyParser.json());
 
 const normalizePort = val => {
