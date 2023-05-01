@@ -29,7 +29,7 @@ app.post('/solver', (req, res) => {
   const a = parseInt(req.body.a);
   const b = parseInt(req.body.b);
   
-  
+  /*
   exec(`./sum ${a} ${b}`, (error, stdout, stderr) => {
     if (error) {
         console.error(`exec error: ${error}`);
@@ -39,7 +39,13 @@ app.post('/solver', (req, res) => {
     const sum = parseInt(stdout.trim());
   
     return res.send(`Sum : ${a} + ${b} = ${sum}`);
-      });
+      });*/
+    const process = spawn('./executable', ['arg1', 'arg2']);
+    process.stdout.on('data', (data) => {
+      // console.log(`stdout: ${data}`);
+      return res.send(`Sum : ${a} + ${b} = ${data}`);
+    });
+
     res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
 });
