@@ -38,9 +38,9 @@ app.post('/solver', (req, res) => {
   
     const sum = parseInt(stdout.trim());
   
-    return;// res.send(`Sum : ${a} + ${b} = ${sum}`);
+    return res.send(`Sum : ${a} + ${b} = ${sum}`);
       });
-    res.send(`Sum : ${a} + ${b}`);
+    // res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
 });
 
