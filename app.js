@@ -40,7 +40,7 @@ app.post('/solver', (req, res) => {
   
     return res.send(`Sum : ${a} + ${b} = ${sum}`);
       });*/
-    const process = spawn('./executable', ['arg1', 'arg2']);
+    const process = spawn('./sum', [`${a}`, `${b}`]);
     process.stdout.on('data', (data) => {
       // console.log(`stdout: ${data}`);
       return res.send(`Sum : ${a} + ${b} = ${data}`);
