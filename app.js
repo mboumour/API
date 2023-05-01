@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
+const { spawn } = require('child_process');
+
 // const cors = require('cors'); // Importation de CORS
 // app.use(cors());
 
