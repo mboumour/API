@@ -31,10 +31,10 @@ app.post('/solver', (req, res) => {
   
   
   exec(`./sum ${a} ${b}`, (error, stdout, stderr) => {
-    /*if (error) {
+    if (error) {
         console.error(`exec error: ${error}`);
         return res.status(500).send("Error occurred !");
-    }*/
+    }
   
     const sum = parseInt(stdout.trim());
   
