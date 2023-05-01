@@ -42,11 +42,13 @@ app.post('/solver', (req, res) => {
   
     return res.send(`Sum : ${a} + ${b} = ${sum}`);
       });*/
+
+    /*
     const process = spawn('./sum', [`${a}`, `${b}`]);
     process.stdout.on('data', (data) => {
       // console.log(`stdout: ${data}`);
       return res.send(`Sum : ${a} + ${b} = ${data}`);
-    });
+    });*/
 
     res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
