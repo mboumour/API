@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 // Route GET /solver
 app.get('/solver', (req, res) => {
-  res.json({ message: "GET request received on /solver route3" }); 
+  res.json({ message: "GET request received on /solver route" }); 
 });
 
 // Route POST /solver
