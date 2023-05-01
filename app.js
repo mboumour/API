@@ -1,8 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const { exec } = require('child_process');
-// const { spawn } = require('child_process');
-
+const { exec } = require('child_process');
 // const cors = require('cors'); // Importation de CORS
 // app.use(cors());
 
@@ -16,10 +14,8 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Max-Age", "1800");
   res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token,Origin, X-Requested-With, Content, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-  // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
-
 
 // Route GET /solver
 app.get('/solver', (req, res) => {
@@ -42,14 +38,6 @@ app.post('/solver', (req, res) => {
   
     return res.send(`Sum : ${a} + ${b} = ${sum}`);
       });*/
-
-    /*
-    const process = spawn('./sum', [`${a}`, `${b}`]);
-    process.stdout.on('data', (data) => {
-      // console.log(`stdout: ${data}`);
-      return res.send(`Sum : ${a} + ${b} = ${data}`);
-    });*/
-
     res.send(`Sum : ${a} + ${b}`);
     // res.json({ message: 'Problème résolu !' });
 });
